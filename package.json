@@ -1,0 +1,13 @@
+{
+  "name": "techdegree-project-7",
+  "version": "1.0.0",
+  "description": "Interactive analytics dashboard with a lightweight Node server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["dashboard", "analytics", "vanilla", "node"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
