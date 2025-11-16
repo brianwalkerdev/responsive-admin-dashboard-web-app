@@ -26,56 +26,76 @@ fs.copyFileSync(
 console.log('✓ Copied index.html');
 
 // Copy CSS directory
-const cssDir = path.join(distDir, 'css');
-if (!fs.existsSync(cssDir)) {
-  fs.mkdirSync(cssDir, { recursive: true });
+const cssSourceDir = path.join(__dirname, 'css');
+if (fs.existsSync(cssSourceDir)) {
+  const cssDir = path.join(distDir, 'css');
+  if (!fs.existsSync(cssDir)) {
+    fs.mkdirSync(cssDir, { recursive: true });
+  }
+  fs.readdirSync(cssSourceDir).forEach(file => {
+    fs.copyFileSync(
+      path.join(cssSourceDir, file),
+      path.join(cssDir, file)
+    );
+  });
+  console.log('✓ Copied CSS files');
+} else {
+  console.warn('⚠ CSS directory not found, skipping...');
 }
-fs.readdirSync(path.join(__dirname, 'css')).forEach(file => {
-  fs.copyFileSync(
-    path.join(__dirname, 'css', file),
-    path.join(cssDir, file)
-  );
-});
-console.log('✓ Copied CSS files');
 
 // Copy JS directory
-const jsDir = path.join(distDir, 'js');
-if (!fs.existsSync(jsDir)) {
-  fs.mkdirSync(jsDir, { recursive: true });
+const jsSourceDir = path.join(__dirname, 'js');
+if (fs.existsSync(jsSourceDir)) {
+  const jsDir = path.join(distDir, 'js');
+  if (!fs.existsSync(jsDir)) {
+    fs.mkdirSync(jsDir, { recursive: true });
+  }
+  fs.readdirSync(jsSourceDir).forEach(file => {
+    fs.copyFileSync(
+      path.join(jsSourceDir, file),
+      path.join(jsDir, file)
+    );
+  });
+  console.log('✓ Copied JavaScript files');
+} else {
+  console.warn('⚠ JS directory not found, skipping...');
 }
-fs.readdirSync(path.join(__dirname, 'js')).forEach(file => {
-  fs.copyFileSync(
-    path.join(__dirname, 'js', file),
-    path.join(jsDir, file)
-  );
-});
-console.log('✓ Copied JavaScript files');
 
 // Copy images directory
-const imagesDir = path.join(distDir, 'images');
-if (!fs.existsSync(imagesDir)) {
-  fs.mkdirSync(imagesDir, { recursive: true });
+const imagesSourceDir = path.join(__dirname, 'images');
+if (fs.existsSync(imagesSourceDir)) {
+  const imagesDir = path.join(distDir, 'images');
+  if (!fs.existsSync(imagesDir)) {
+    fs.mkdirSync(imagesDir, { recursive: true });
+  }
+  fs.readdirSync(imagesSourceDir).forEach(file => {
+    fs.copyFileSync(
+      path.join(imagesSourceDir, file),
+      path.join(imagesDir, file)
+    );
+  });
+  console.log('✓ Copied image files');
+} else {
+  console.warn('⚠ Images directory not found, skipping...');
 }
-fs.readdirSync(path.join(__dirname, 'images')).forEach(file => {
-  fs.copyFileSync(
-    path.join(__dirname, 'images', file),
-    path.join(imagesDir, file)
-  );
-});
-console.log('✓ Copied image files');
 
 // Copy svgs directory
-const svgsDir = path.join(distDir, 'svgs');
-if (!fs.existsSync(svgsDir)) {
-  fs.mkdirSync(svgsDir, { recursive: true });
+const svgsSourceDir = path.join(__dirname, 'svgs');
+if (fs.existsSync(svgsSourceDir)) {
+  const svgsDir = path.join(distDir, 'svgs');
+  if (!fs.existsSync(svgsDir)) {
+    fs.mkdirSync(svgsDir, { recursive: true });
+  }
+  fs.readdirSync(svgsSourceDir).forEach(file => {
+    fs.copyFileSync(
+      path.join(svgsSourceDir, file),
+      path.join(svgsDir, file)
+    );
+  });
+  console.log('✓ Copied SVG files');
+} else {
+  console.warn('⚠ SVGS directory not found, skipping...');
 }
-fs.readdirSync(path.join(__dirname, 'svgs')).forEach(file => {
-  fs.copyFileSync(
-    path.join(__dirname, 'svgs', file),
-    path.join(svgsDir, file)
-  );
-});
-console.log('✓ Copied SVG files');
 
 console.log('\n✨ Build complete! Files are ready in the dist/ directory');
 console.log('📦 You can now deploy the dist/ directory to your hosting service\n');
