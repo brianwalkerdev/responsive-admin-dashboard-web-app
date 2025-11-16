@@ -304,7 +304,9 @@
     <script>
       // Fallback to local Chart.js if CDN fails
       if (typeof Chart === 'undefined') {
-        document.write('<script src="js/vendor/chart.min.js"><\/script>');
+        var fallbackScript = document.createElement('script');
+        fallbackScript.src = 'js/vendor/chart.min.js';
+        document.head.appendChild(fallbackScript);
       }
     </script>
     <script src="js/main.js"></script>
