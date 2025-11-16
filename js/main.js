@@ -63,7 +63,7 @@ if (typeof Chart !== 'undefined') {
 
   const trafficCanvas = document.getElementById("traffic-chart");
   if (trafficCanvas) {
-    const trafficChart = new Chart(trafficCanvas.getContext("2d"), {
+    new Chart(trafficCanvas.getContext("2d"), {
       type: "line",
       data: trafficData,
       options: trafficOptions,
