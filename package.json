@@ -33,6 +33,7 @@
     "url": "https://github.com/brianwalkerdev/frontend-web-application/issues"
   },
   "homepage": "https://github.com/brianwalkerdev/frontend-web-application#readme",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^3.5.1"
+  }
 }
