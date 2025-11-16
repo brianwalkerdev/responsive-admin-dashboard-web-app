@@ -10,7 +10,7 @@
 
 ## 📸 Screenshots
 
-![WebApp Dashboard](https://github.com/user-attachments/assets/18f672c6-f986-44a4-9293-add9906578c5)
+![WebApp Dashboard](https://github.com/user-attachments/assets/ae7e8d8c-4d8f-4a82-b5a1-84867f504cf7)
 
 ## ✨ Features
 
