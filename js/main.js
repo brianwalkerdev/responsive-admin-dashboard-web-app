@@ -104,7 +104,7 @@ if (typeof Chart !== 'undefined') {
   };
 
   if (dailyCanvas) {
-    const dailyChart = new Chart(dailyCanvas.getContext("2d"), {
+    new Chart(dailyCanvas.getContext("2d"), {
       type: "bar",
       data: dailyData,
       options: dailyOptions,
