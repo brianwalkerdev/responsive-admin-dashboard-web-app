@@ -50,12 +50,23 @@ if (fs.existsSync(jsSourceDir)) {
   if (!fs.existsSync(jsDir)) {
     fs.mkdirSync(jsDir, { recursive: true });
   }
-  fs.readdirSync(jsSourceDir).forEach(file => {
-    fs.copyFileSync(
-      path.join(jsSourceDir, file),
-      path.join(jsDir, file)
-    );
-  });
+  
+  // Function to recursively copy directory
+  function copyDirectory(src, dest) {
+    const entries = fs.readdirSync(src, { withFileTypes: true });
+    for (const entry of entries) {
+      const srcPath = path.join(src, entry.name);
+      const destPath = path.join(dest, entry.name);
+      if (entry.isDirectory()) {
+        fs.mkdirSync(destPath, { recursive: true });
+        copyDirectory(srcPath, destPath);
+      } else {
+        fs.copyFileSync(srcPath, destPath);
+      }
+    }
+  }
+  
+  copyDirectory(jsSourceDir, jsDir);
   console.log('✓ Copied JavaScript files');
 } else {
   console.warn('⚠ JS directory not found, skipping...');

@@ -20,28 +20,24 @@ alertBanner.addEventListener("click", (e) => {
 
 // Check if Chart.js is loaded
 if (typeof Chart !== 'undefined') {
-  const trafficData = {
-    labels: [
-      "16-22",
-      "23-29",
-      "30-5",
-      "6-12",
-      "13-19",
-      "20-26",
-      "27-3",
-      "4-10",
-      "11-17",
-      "18-24",
-      "25-31",
-    ],
-    datasets: [
-      {
-        data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
-        backgroundColor: "#4D4C72",
-        borderWidth: 5,
-        borderColor: "#4D4C72",
-      },
-    ],
+  // Define data for different time periods
+  const trafficDataSets = {
+    hourly: {
+      labels: ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"],
+      data: [50, 75, 100, 125, 200, 250, 300, 350, 400, 380, 320, 250]
+    },
+    daily: {
+      labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      data: [1200, 1800, 1500, 2100, 2000, 1900, 1400]
+    },
+    weekly: {
+      labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18-24", "25-31"],
+      data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500]
+    },
+    monthly: {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      data: [5000, 5500, 6000, 7000, 7500, 8000, 8500, 9000, 8500, 9500, 10000, 9000]
+    }
   };
 
   const trafficOptions = {
@@ -62,11 +58,51 @@ if (typeof Chart !== 'undefined') {
   };
 
   const trafficCanvas = document.getElementById("traffic-chart");
+  let trafficChart = null;
+
   if (trafficCanvas) {
-    new Chart(trafficCanvas.getContext("2d"), {
+    // Initialize with weekly data (default active view)
+    const initialData = {
+      labels: trafficDataSets.weekly.labels,
+      datasets: [
+        {
+          data: trafficDataSets.weekly.data,
+          backgroundColor: "#4D4C72",
+          borderWidth: 5,
+          borderColor: "#4D4C72",
+          fill: false,
+          tension: 0.2
+        },
+      ],
+    };
+
+    trafficChart = new Chart(trafficCanvas.getContext("2d"), {
       type: "line",
-      data: trafficData,
+      data: initialData,
       options: trafficOptions,
+    });
+
+    // Add click handlers to traffic nav links
+    const trafficNavLinks = document.querySelectorAll(".traffic-nav-link");
+    
+    trafficNavLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        // Remove active class from all links
+        trafficNavLinks.forEach((navLink) => navLink.classList.remove("active"));
+        
+        // Add active class to clicked link
+        e.target.classList.add("active");
+        
+        // Get the period type from the link text
+        const period = e.target.textContent.toLowerCase();
+        
+        // Update chart data
+        if (trafficDataSets[period]) {
+          trafficChart.data.labels = trafficDataSets[period].labels;
+          trafficChart.data.datasets[0].data = trafficDataSets[period].data;
+          trafficChart.update();
+        }
+      });
     });
   }
 }
