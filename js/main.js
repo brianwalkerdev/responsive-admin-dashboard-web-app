@@ -144,7 +144,7 @@ if (typeof Chart !== 'undefined') {
   };
 
   if (mobileCanvas) {
-    const mobileChart = new Chart(mobileCanvas.getContext("2d"), {
+    new Chart(mobileCanvas.getContext("2d"), {
       type: "doughnut",
       data: mobileData,
       options: mobileOptions,
