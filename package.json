@@ -1,0 +1,38 @@
+{
+  "name": "webapp-dashboard",
+  "version": "1.0.0",
+  "description": "A responsive web application dashboard featuring interactive data visualizations, user management, and real-time analytics built with vanilla JavaScript and Chart.js",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "build": "node build.js",
+    "preview": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianwalkerdev/frontend-web-application.git"
+  },
+  "keywords": [
+    "dashboard",
+    "web-app",
+    "data-visualization",
+    "charts",
+    "analytics",
+    "responsive-design",
+    "chartjs",
+    "vanilla-javascript",
+    "frontend",
+    "portfolio"
+  ],
+  "author": {
+    "name": "Brian Walker",
+    "url": "https://brianwalker.dev"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brianwalkerdev/frontend-web-application/issues"
+  },
+  "homepage": "https://github.com/brianwalkerdev/frontend-web-application#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -9,6 +9,19 @@ body {
   margin: 0 auto;
 }
 
+/* Accessibility helper class */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 header {
   background-color: #7477bf;
   display: flex;
@@ -20,15 +33,31 @@ header {
   height: 75px;
 }
 
-header svg {
-  height: 25px;
-  filter: invert(1);
+.notification-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-header svg:hover {
+.notification-button svg {
+  height: 25px;
+  filter: invert(1);
+  transition: transform 0.2s ease;
+}
+
+.notification-button:hover svg {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
   animation-iteration-count: infinite;
+}
+
+.notification-button:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 @keyframes shake {
