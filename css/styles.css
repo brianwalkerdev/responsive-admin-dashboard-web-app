@@ -214,6 +214,7 @@ nav img {
 
 .traffic-nav-link {
   padding: 10px;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -375,6 +376,7 @@ nav img {
   color: white;
   text-align: center;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .settings {
@@ -401,6 +403,7 @@ nav img {
   color: white;
   text-align: center;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .settings .button-disabled {
@@ -412,6 +415,7 @@ nav img {
   color: white;
   text-align: center;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .buttons {
@@ -500,6 +504,10 @@ input:checked + .slider:before {
   background-color: #7477bf;
   color: white;
   text-align: center;
+}
+
+.alert-banner-close {
+  cursor: pointer;
 }
 
 /* Grid Layout */
