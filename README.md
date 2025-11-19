@@ -1,16 +1,14 @@
-# WebApp Dashboard
+# Responsive Admin Dashboard
 
-> A responsive, interactive analytics dashboard featuring real-time data visualizations and user management built with vanilla JavaScript and Chart.js
+A modern, fully responsive analytics dashboard with interactive data visualizations, user management, and real-time statistics. Built with vanilla JavaScript and Chart.js to demonstrate clean frontend development skills.
+
+![Dashboard Preview](images/project-thumbnail.png)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
 ## 🔗 Live Demo
 
-[View Live Demo](#) <!-- Add your deployed URL here -->
-
-## 📸 Screenshots
-
-![WebApp Dashboard](https://github.com/user-attachments/assets/ae7e8d8c-4d8f-4a82-b5a1-84867f504cf7)
+[View Live Demo](https://brianwalkerdev.github.io/responsive-admin-dashboard-web-app)
 
 ## ✨ Features
 
@@ -42,8 +40,8 @@
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/brianwalkerdev/frontend-web-application.git
-cd frontend-web-application
+git clone https://github.com/brianwalkerdev/responsive-admin-dashboard-web-app.git
+cd responsive-admin-dashboard-web-app
 ```
 
 2. Start a local development server:
@@ -92,17 +90,18 @@ Simply upload the contents of the root directory (or `dist/` after building) to 
 ## 📁 Project Structure
 
 ```
-frontend-web-application/
+responsive-admin-dashboard-web-app/
 ├── css/
 │   ├── normalize.css      # CSS reset
 │   └── styles.css         # Main styles
 ├── js/
-│   └── main.js           # Application logic
+│   ├── main.js           # Application logic
+│   └── vendor/           # Third-party libraries
 ├── images/               # Profile and member images
 ├── svgs/                 # Icon assets
 ├── index.html           # Main HTML file
 ├── package.json         # Project metadata
-├── build.js            # Build script
+├── build.js            # Build script for static deployment
 ├── LICENSE             # MIT License
 └── README.md          # This file
 ```
