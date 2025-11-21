@@ -8,7 +8,7 @@ A modern, fully responsive analytics dashboard with interactive data visualizati
 
 ## 🔗 Live Demo
 
-[View Live Demo](https://brianwalkerdev.github.io/responsive-admin-dashboard-web-app)
+[View Live Demo](https://projects.brianwalker.dev/responsive-admin-dashboard-web-app)
 
 ## ✨ Features
 
